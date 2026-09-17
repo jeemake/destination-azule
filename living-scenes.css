@@ -4,6 +4,11 @@
 .video-toggle{position:absolute;right:var(--gutter);bottom:86px;display:flex;align-items:center;gap:9px;padding:9px 15px;border:1px solid #fbf8f280;border-radius:30px;color:var(--chalk);background:#0b253065;backdrop-filter:blur(8px);font-size:13px}
 .video-toggle[hidden]{display:none}
 .motion-off .hero-video{display:none}
+.footer-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-1;pointer-events:none;opacity:0;transform:translateY(var(--footer-pattern-y,0px)) scale(1.2);transition:opacity .5s}
+.footer.has-film .footer-video{opacity:.2}
+.footer.has-film .footer-pattern{opacity:0}
+.motion-off .footer-video{display:none}
+.motion-off .footer .footer-pattern{opacity:.09!important}
 .aqua .experience-photo{background:var(--aqua)}
 .aqua-stage{position:absolute;inset:0;overflow:hidden;isolation:isolate}
 .aqua-static{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}

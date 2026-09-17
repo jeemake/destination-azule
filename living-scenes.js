@@ -69,3 +69,22 @@
   addEventListener('scroll',schedule,{passive:true});addEventListener('resize',schedule,{passive:true});
   schedule();
 })();
+
+(() => {
+  const footer=document.querySelector('.footer');
+  const film=document.querySelector('.footer-video');
+  if(!film)return;
+  let visible=false,reduced=document.documentElement.classList.contains('motion-off');
+  function sync(){
+    if(reduced||!visible||document.hidden){film.pause();return;}
+    if(!film.getAttribute('src'))film.src=film.dataset.src;
+    film.play().then(()=>{
+      if(reduced||!visible||document.hidden){film.pause();return;}
+      footer.classList.add('has-film');
+    }).catch(()=>footer.classList.remove('has-film'));
+  }
+  film.addEventListener('error',()=>footer.classList.remove('has-film'));
+  new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;sync();},{threshold:.01}).observe(footer);
+  document.addEventListener('visibilitychange',sync);
+  document.addEventListener('azule:motion',e=>{reduced=e.detail.reduced;sync();});
+})();
