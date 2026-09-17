@@ -1,0 +1,60 @@
+/* The same two waves, with scroll-driven depth and deliberate reading pauses. */
+.hero-scene,.breath-scene{position:relative}
+.cinematic .hero-scene{height:180svh;background:var(--lagoon)}
+.cinematic .hero{position:sticky;top:0;height:100svh;min-height:0;max-height:none}
+.cinematic .hero-image{inset:-5%;transform:translate3d(0,var(--hero-y,0px),0) scale(var(--hero-zoom,1));transform-origin:62% 58%}
+.cinematic .hero h1>span{transform:translate3d(var(--title-x,0px),var(--title-y,0px),0);opacity:var(--hero-copy-opacity,1)}
+.cinematic .hero h1>em{transform:translate3d(calc(var(--title-x,0px) * -0.65),calc(var(--title-y,0px) * 0.55),0);opacity:var(--hero-copy-opacity,1)}
+.cinematic .hero-copy>p{transform:translateY(var(--subtitle-y,0px));opacity:var(--hero-copy-opacity,1)}
+.cinematic .hero-topline,.cinematic .round-link{opacity:var(--hero-ui-opacity,1)}
+.cinematic .round-link{translate:0 var(--badge-y,0px);rotate:var(--badge-turn,0deg)}
+.cinematic .hero-bottom{opacity:var(--hero-ui-opacity,1)}
+.hero h1>span,.hero h1>em,.hero-copy>p{will-change:transform,opacity}
+.arrival-photo img,.calm-photo img{height:150%;top:-25%;max-width:none;will-change:transform}
+.arrival-caption{transform:translateY(var(--arrival-caption-y,0px))}
+.arrival-pattern{transform:translate3d(0,var(--arrival-pattern-y,0px),0) rotate(var(--arrival-pattern-turn,0deg));transform-origin:center}
+.wave-line{display:block;transform:translate3d(var(--wave-x,0px),0,0);will-change:transform}
+.wave-pattern{transform:translate3d(0,var(--wave-pattern-y,0px),0) scale(var(--wave-pattern-scale,1));transform-origin:75% 45%}
+.journey{height:480svh}
+.experience-photo>img{max-width:none;width:120%;height:116%;margin:-8vh 0 0 -10%;transform:translate3d(var(--photo-x,0px),0,0) scale(var(--photo-zoom,1));will-change:transform}
+.experience-copy>h2{transform:translate3d(var(--copy-x,0px),var(--copy-y,0px),0);will-change:transform}
+.experience-copy>p{transform:translate3d(calc(var(--copy-x,0px) * .45),0,0)}
+.scene-nav{position:absolute;z-index:3;top:26px;right:3vw;display:flex;gap:4px;padding:5px;border:1px solid #ffffff80;border-radius:50px;background:#fbf8f2ed;color:var(--lagoon);backdrop-filter:blur(10px)}
+.scene-nav a{font-size:14px;line-height:1;padding:12px 18px;border-radius:30px;transition:background .2s,color .2s}
+.scene-nav a[aria-current="step"]{background:var(--lagoon);color:var(--chalk)}
+.scene-nav a:hover{background:var(--sand);color:var(--lagoon)}
+.cinematic .breath-scene{height:210svh;background:var(--lagoon)}
+.cinematic .breath{position:sticky;top:0;height:100svh;min-height:0;clip-path:inset(var(--ocean-inset,0%) round var(--ocean-radius,0px))}
+.cinematic .breath-image{inset:-15%;transform:translate3d(0,var(--ocean-y,0px),0) scale(var(--ocean-zoom,1.2));transform-origin:35% 50%}
+.breath-line{display:block;transform:translateY(var(--line-y,0px));opacity:var(--line-opacity,1);will-change:transform,opacity}
+.cinematic .breath-copy>span{opacity:var(--ocean-kicker,1);transform:translateY(var(--ocean-kicker-y,0px));display:block}
+.cinematic .breath-copy>a{opacity:var(--ocean-link,1)}
+.cinematic .round-link:focus-visible,.cinematic .hero-bottom:focus-within,.cinematic .breath-copy>a:focus-visible{opacity:1}
+.calm-photo{transform:translate3d(0,var(--calm-frame-y,0px),0);border-radius:var(--calm-radius,44%) var(--calm-radius,44%) 0 0}
+.calm-pattern{transform:translateY(var(--calm-pattern-y,0px)) rotate(var(--calm-turn,0deg))}
+.footer-wordmark{transform:translateY(var(--footer-word-y,0px));will-change:transform}
+.footer-pattern{transform:translateY(var(--footer-pattern-y,0px)) scale(1.2)}
+.motion-off .scene-nav{display:none}
+.motion-off .arrival-caption,.motion-off .arrival-pattern,.motion-off .wave-line,.motion-off .wave-pattern,.motion-off .experience-photo>img,.motion-off .experience-copy>h2,.motion-off .experience-copy>p,.motion-off .breath-line,.motion-off .calm-photo,.motion-off .calm-pattern,.motion-off .footer-wordmark,.motion-off .footer-pattern{transform:none!important;opacity:1!important}
+.motion-off .experience-photo>img{width:100%;height:100%;margin:0}
+.motion-off .calm-photo{border-radius:44% 44% 0 0}
+.motion-off .journey{height:auto}
+@media(max-width:760px){
+  .cinematic .hero-scene{height:150svh}
+  .cinematic .breath-scene{height:165svh}
+  .cinematic .hero-copy{top:31%}
+  .scene-nav{display:none}
+  .journey{height:auto}
+  .experience-photo>img{width:120%;height:130%;margin:-15% 0 0 -10%;transform:translate3d(0,var(--mobile-photo-y,0px),0) scale(1.04)}
+  .experience-copy>h2{transform:translateY(var(--mobile-copy-y,0px))}
+  .experience-copy>p{transform:none}
+  .arrival-caption{transform:none}
+}
+@media(max-height:639px){
+  .journey{height:auto}
+  .journey-sticky{height:auto;position:relative;overflow:visible}
+  .journey-track{width:100%;height:auto;display:block;transform:none!important}
+  .experience{width:100%;height:auto;min-height:650px}
+  .scene-nav,.journey-progress{display:none}
+}
+@media(prefers-reduced-motion:reduce){.hero h1>span,.hero h1>em,.hero-copy>p{will-change:auto}}
