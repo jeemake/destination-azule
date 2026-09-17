@@ -119,6 +119,7 @@
     motionButton.textContent=reduced?'Animations réduites':'Animations activées';
     motionButton.setAttribute('aria-pressed',String(reduced));
     layout();
+    document.dispatchEvent(new CustomEvent('azule:motion',{detail:{reduced}}));
   }
   setMotion(reduced);
   motionButton.addEventListener('click',()=>{setMotion(!reduced);try{localStorage.setItem('azule-motion',reduced?'off':'on');}catch{}});

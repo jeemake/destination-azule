@@ -9,10 +9,12 @@
   <link rel="icon" href="assets/favicon-orange-32.png" type="image/png" sizes="32x32">
   <link rel="icon" href="assets/favicon-orange.svg" type="image/svg+xml" sizes="any">
   <link rel="apple-touch-icon" href="assets/favicon-orange-180.png" sizes="180x180">
-  <link rel="preload" as="image" href="assets/hero_aerial.webp">
+  <link rel="preload" as="image" href="assets/hero-opening-poster.webp">
   <link rel="stylesheet" href="styles.css?v=story-2">
-  <link rel="stylesheet" href="motion.css?v=story-2">
-  <script src="app.js?v=story-2" defer></script>
+  <link rel="stylesheet" href="motion.css?v=story-3">
+  <link rel="stylesheet" href="living-scenes.css?v=1">
+  <script src="app.js?v=story-3" defer></script>
+  <script src="living-scenes.js?v=1" defer></script>
 </head>
 <body>
   <a class="skip" href="#destination">Aller au contenu</a>
@@ -26,11 +28,12 @@
   <main>
     <div class="hero-scene">
     <section class="hero" id="accueil" aria-labelledby="hero-title">
-      <div class="hero-image"><img src="assets/hero_aerial.webp" alt="Vision d’AZULÉ, entre lagune, palmeraie et océan à Assinie" fetchpriority="high" width="2200" height="1228"></div>
+      <div class="hero-image"><img src="assets/hero-opening-poster.webp" alt="Vision d’AZULÉ, entre lagune, palmeraie et océan à Assinie" fetchpriority="high" width="1600" height="900"><video class="hero-video" muted loop playsinline preload="none" poster="assets/hero-opening-poster.webp" data-src="assets/hero-opening-7s.mp4" data-mobile-src="assets/hero-opening-7s-mobile.mp4" aria-hidden="true"></video></div>
       <div class="hero-shade"></div>
       <div class="hero-topline"><span>Assinie, Côte d’Ivoire</span><span>Un nouvel horizon se dessine</span></div>
       <div class="hero-copy"><h1 id="hero-title"><span>L’OCÉAN,</span><em>autrement.</em></h1><p>Le goût du large.<br>La joie d’être ensemble.</p></div>
       <a class="round-link" href="#destination"><span>Prendre<br>la vague</span><span aria-hidden="true">↓</span></a>
+      <button class="video-toggle" type="button" aria-pressed="false" aria-label="Mettre la vidéo en pause" hidden><span aria-hidden="true">Ⅱ</span> Pause vidéo</button>
       <div class="hero-bottom"><a href="#destination"><span class="scroll-line" aria-hidden="true"></span>Le voyage commence ici</a><span>Un lieu. Deux rythmes. Mille souvenirs.</span><span class="image-note">Vision du projet</span></div>
     </section>
     </div>
@@ -45,7 +48,14 @@
 
     <div class="journey" id="journey">
       <div class="journey-sticky"><nav class="scene-nav" aria-label="Les trois étapes de l’Onde Vive"><a href="#aqua">Aqua</a><a href="#yere">Yéré</a><a href="#gourmet">Gourmet</a></nav><div class="journey-track">
-        <section class="experience aqua" id="aqua" aria-labelledby="aqua-title"><div class="experience-copy"><span class="experience-label">AZULÉ Aqua</span><h2 id="aqua-title">LE BONHEUR<br>FAIT DES<br>VAGUES.</h2><p>Une piscine à vagues, des toboggans, une rivière lente. Ici, chacun trouve son courant.</p><div class="experience-bottom"><span>Glisser. Éclabousser. Recommencer.</span><span class="experience-count">01 / 03</span></div></div><div class="experience-photo"><img src="assets/aqua_friends.webp" alt="Des amis partagent un moment de joie dans le parc aquatique imaginé pour AZULÉ" loading="lazy" width="2200" height="1476"><span class="photo-tag">L’Onde Vive</span></div></section>
+        <section class="experience aqua" id="aqua" aria-labelledby="aqua-title"><div class="experience-copy"><span class="experience-label">AZULÉ Aqua</span><h2 id="aqua-title">LE BONHEUR<br>FAIT DES<br>VAGUES.</h2><p>Une piscine à vagues, des toboggans, une rivière lente. Ici, chacun trouve son courant.</p><div class="experience-bottom"><span>Glisser. Éclabousser. Recommencer.</span><span class="experience-count">01 / 03</span></div></div><div class="experience-photo"><div class="aqua-stage" role="img" aria-label="Des amis dans la piscine AZULÉ : une jeune femme saute, les éclaboussures et les personnages accompagnent le défilement.">
+          <img class="aqua-static" src="assets/aqua_friends.webp" alt="" loading="lazy" width="2200" height="1476">
+          <div class="aqua-world" aria-hidden="true">
+            <img class="aqua-backdrop" src="assets/aqua-background.webp" alt="" loading="lazy" width="1531" height="1027">
+            <div class="aqua-people"><div class="aqua-person aqua-person--left"></div><div class="aqua-person aqua-person--center"></div><div class="aqua-person aqua-person--woman"></div><div class="aqua-person aqua-person--right"></div><div class="aqua-person aqua-person--jumper"></div></div>
+            <div class="aqua-water"></div><div class="aqua-ripple"></div>
+            <img class="aqua-spray" src="assets/aqua-spray.webp" alt="" loading="lazy" width="1531" height="1027">
+          </div></div><span class="photo-tag">L’Onde Vive</span></div></section>
         <section class="experience yere" id="yere" aria-labelledby="yere-title"><div class="experience-copy"><span class="experience-label">AZULÉ Yéré</span><h2 id="yere-title">ENCORE<br>UNE<br>PARTIE ?</h2><p>Du bowling à la réalité virtuelle, des terrains de sport aux jeux des plus petits : le plaisir de jouer n’a pas d’âge.</p><div class="experience-bottom"><span>Les meilleurs scores ? Les souvenirs.</span><span class="experience-count">02 / 03</span></div></div><div class="experience-photo"><img src="assets/yere_bowling.webp" alt="Ambiance du bowling AZULÉ Yéré, avec ses pistes et ses couleurs corail" loading="lazy" width="2200" height="1476"><span class="photo-tag">À vous de jouer</span></div></section>
         <section class="experience gourmet" id="gourmet" aria-labelledby="gourmet-title"><div class="experience-copy"><span class="experience-label">AZULÉ Gourmet</span><h2 id="gourmet-title">LE GOÛT<br>DE RESTER<br>À TABLE.</h2><p>Sous la grande paillote ou au food court, la gourmandise se partage. La Côte d’Ivoire dans l’assiette, la lagune en toile de fond.</p><div class="experience-bottom"><span>On prendra un peu plus de temps.</span><span class="experience-count">03 / 03</span></div></div><div class="experience-photo"><img src="assets/gourmet_couple.webp" alt="Une table gastronomique sous une paillote, ouverte sur la lagune" loading="lazy" width="2200" height="1476"><span class="photo-tag">Savoure lentement</span></div></section>
       </div><div class="journey-progress" aria-hidden="true"><span></span></div></div>

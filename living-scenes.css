@@ -1,0 +1,37 @@
+/* Film at the entrance; independently layered people, pool and spray in Aqua. */
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0;transition:opacity .4s}
+.hero-video.is-ready{opacity:1}
+.video-toggle{position:absolute;right:var(--gutter);bottom:86px;display:flex;align-items:center;gap:9px;padding:9px 15px;border:1px solid #fbf8f280;border-radius:30px;color:var(--chalk);background:#0b253065;backdrop-filter:blur(8px);font-size:13px}
+.video-toggle[hidden]{display:none}
+.motion-off .hero-video{display:none}
+.aqua .experience-photo{background:var(--aqua)}
+.aqua-stage{position:absolute;inset:0;overflow:hidden;isolation:isolate}
+.aqua-static{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.aqua-world{position:absolute;left:50%;top:50%;width:var(--aqua-cover-width,100%);aspect-ratio:1531/1027;transform:translate(-50%,-50%);opacity:0}
+.aqua-stage.is-layered .aqua-world{opacity:1}
+.aqua-stage.is-layered .aqua-static{visibility:hidden}
+.aqua-backdrop,.aqua-person,.aqua-water,.aqua-spray{position:absolute;inset:0;width:100%;height:100%;max-width:none;pointer-events:none}
+.aqua-backdrop{transform:translate3d(var(--aqua-back-x,0px),var(--aqua-back-y,0px),0) scale(1.08)}
+.aqua-people{position:absolute;inset:0;transform:translateY(12%) scale(.88);transform-origin:50% 0}
+.aqua-person{background:url('assets/aqua-people.webp') center/100% 100% no-repeat;will-change:transform}
+.aqua-person--left{clip-path:polygon(0 0,22% 0,22% 100%,0 100%);transform:translate3d(var(--friend-left-x,0px),var(--friend-left-y,0px),0) rotate(var(--friend-left-turn,0deg));transform-origin:15% 90%}
+.aqua-person--jumper{clip-path:polygon(22% 0,49% 0,49% 29%,46% 35%,43% 50%,43% 100%,22% 100%);transform:translate3d(var(--jump-x,0px),var(--jump-y,0px),0) rotate(var(--jump-turn,0deg));transform-origin:35% 62%;z-index:2}
+.aqua-person--center{clip-path:polygon(49% 0,63% 0,63% 100%,43% 100%,43% 50%,46% 35%,49% 29%);transform:translate3d(0,var(--friend-center-y,0px),0) rotate(var(--friend-center-turn,0deg));transform-origin:53% 91%}
+.aqua-person--woman{clip-path:inset(0 18.8% 0 63%);transform:translate3d(0,var(--friend-woman-y,0px),0) rotate(var(--friend-woman-turn,0deg));transform-origin:72% 91%}
+.aqua-person--right{clip-path:inset(0 0 0 81.2%);transform:translate3d(var(--friend-right-x,0px),var(--friend-right-y,0px),0) rotate(var(--friend-right-turn,0deg));transform-origin:89% 91%}
+.aqua-water{z-index:3;background:url('assets/aqua-background.webp') center/100% 100% no-repeat;mask-image:linear-gradient(transparent 75%,#0008 85%,#000 93%);transform:translate3d(var(--water-x,0px),var(--water-y,0px),0) scale(1.04);transform-origin:50% 100%}
+.aqua-spray{z-index:4;object-fit:fill;transform:translate3d(var(--spray-x,0px),var(--spray-y,0px),0) scale(var(--spray-scale,1));transform-origin:36% 87%;opacity:var(--spray-opacity,.8);will-change:transform,opacity}
+.aqua-ripple{position:absolute;z-index:3;left:23%;top:84%;width:29%;height:5%;border:2px solid #effffcba;border-radius:50%;transform:scale(var(--ripple-scale,1));opacity:var(--ripple-opacity,0);filter:blur(.6px)}
+.aqua .photo-tag{z-index:6}
+.motion-off .aqua-world{display:none}
+.motion-off .aqua-stage.is-layered .aqua-static{visibility:visible}
+@media(min-width:761px) and (min-height:640px){
+  .aqua-world{left:54%}
+}
+@media(max-width:760px){
+  .hero-video{object-position:59% center}
+  .video-toggle{bottom:83px;padding:8px 12px;font-size:12px}
+  .aqua .experience-photo{height:clamp(420px,66vw,540px)}
+  .aqua-world{left:54%}
+}
+@media(prefers-reduced-motion:reduce){.hero-video{transition:none}}
